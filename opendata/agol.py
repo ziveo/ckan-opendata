@@ -85,8 +85,14 @@ class AgolItem(object):
         return self.itemJSON['snippet']
 
     def get_thumbnail(self):
-        pdb.set_trace()
-        return url + self.itemID + '/info/' + self.itemJSON['thumbnail']
+        try:
+            image_name = self.itemJSON['thumbnail']
+            thumbnail = url + self.itemID + '/info/' + image_name
+            pdb.set_trace()
+            return thumbnail
+        except:
+            return None
+
 
     def get_extent(self):
         return self.itemJSON['extent']
