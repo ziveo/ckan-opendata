@@ -5,7 +5,7 @@ ArcGIS Open Data provides JSON export in the DCAT format, this module is a pytho
 
 ### Getting Started
 ```sh
-pip install git+https://github.com/jnordling/opendata.git
+pip install git+https://github.com/ziveo/ckan-opendata.git
 ```
 
 ```python
