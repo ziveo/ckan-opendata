@@ -1,5 +1,6 @@
 __author__ = 'jnordling'
 import requests
+import pdb
 url = 'http://www.arcgis.com/sharing/rest/content/items/'
 
 class AgolItem(object):
@@ -84,6 +85,7 @@ class AgolItem(object):
         return self.itemJSON['snippet']
 
     def get_thumbnail(self):
+        pdb.set_trace()
         return url + self.itemID + '/info/' + self.itemJSON['thumbnail']
 
     def get_extent(self):
