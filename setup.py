@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
-version = '0.1'
+version = '0.2'
 
-setup(name='opendata',
+setup(name='ckan-opendata',
       version=version,
       description="ArcGIS Open Data API",
       long_description="Python bindings to the OpenData data.json",
