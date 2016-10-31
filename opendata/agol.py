@@ -88,6 +88,7 @@ class AgolItem(object):
         try:
             image_name = self.itemJSON['thumbnail']
             thumbnail = url + self.itemID + '/info/' + image_name
+            print thumbnail
             pdb.set_trace()
             return thumbnail
         except:
