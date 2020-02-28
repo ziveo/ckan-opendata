@@ -1,18 +1,19 @@
 __author__ = 'jnordling'
+
 import requests
-import pdb
+
 url = 'http://www.arcgis.com/sharing/rest/content/items/'
 
+
 class AgolItem(object):
-    def __init__(self,**kwargs):
+    def __init__(self, **kwargs):
         self.username = kwargs.get('username', None)
         self.password = kwargs.get('password', None)
         self.itemID = kwargs.get('id', None)
-        if self.itemID == None:
-            raise Exception ("Must Provide Agol Item ID")
+        if self.itemID is None:
+            raise Exception("Must Provide Agol Item ID")
 
         self.itemJSON = self.getDataObject()
-
         self.id = self.get_id()
         self.owner = self.get_owner()
         self.created = self.get_created()
@@ -44,10 +45,10 @@ class AgolItem(object):
         self.avgRating = self.get_avgRating()
         self.numViews = self.get_numViews()
 
-
     def getDataObject(self):
         itemURL = url + str(self.itemID) + '?f=json'
         return requests.get(itemURL).json()
+
     def get_id(self):
         return self.itemJSON['id']
 
@@ -88,12 +89,9 @@ class AgolItem(object):
         try:
             image_name = self.itemJSON['thumbnail']
             thumbnail = url + self.itemID + '/info/' + image_name
-            print thumbnail
-            # pdb.set_trace()
             return thumbnail
         except:
             return None
-
 
     def get_extent(self):
         return self.itemJSON['extent']
@@ -145,4 +143,3 @@ class AgolItem(object):
 
     def get_numViews(self):
         return self.itemJSON['numViews']
-
