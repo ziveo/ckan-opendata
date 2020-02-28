@@ -1,5 +1,3 @@
-__author__ = 'jnordling'
-
 import requests
 from agol import *
 
@@ -18,6 +16,7 @@ class Connect(object):
         if code != 200:
             raise Exception("Url Not Valid")
         return code
+
 
 class Data(object):
     def __init__(self, conn, **kwargs):
@@ -48,7 +47,7 @@ class Data(object):
         return dataset['modified']
 
     def getDatasetContact(self, dataset):
-        return dataset['contactPoint']['fn'],dataset['contactPoint']['hasEmail']
+        return dataset['contactPoint']['fn'], dataset['contactPoint']['hasEmail']
 
     def getDatasetResources(self, dataset):
         return dataset['distribution']
@@ -59,19 +58,20 @@ class Data(object):
     def getDatasetTheme(self, dataset):
         return dataset['theme']
 
-    def getDatasetOpenDataID(self,dataset):
-        return dataset['identifier'].split('/')[-1]#.split('_')[0]
+    def getDatasetOpenDataID(self, dataset):
+        return dataset['identifier'].split('/')[-1]  # .split('_')[0]
 
-    def getDatasetAGOLItem(self,itemID):
+    def getDatasetAGOLItem(self, itemID):
         return AgolItem(id=itemID)
 
     def getDatasetAGOLItemID(self, dataset):
         return dataset['identifier'].split('/')[-1].split('_')[0]
+
     #
     # OpenDataPortal Resource Functions
     #
 
-    def getResourcesTitle(self,resource):
+    def getResourcesTitle(self, resource):
         name = 'Resource'
         if resource.has_key('title'):
             name = resource['title']
@@ -82,16 +82,16 @@ class Data(object):
     def getResourcesURL(self, resource):
         url = ''
         if resource.has_key('accessURL'):
-            url= resource['accessURL']
+            url = resource['accessURL']
         elif resource.has_key('accessUrl'):
-            url= resource['accessUrl']
+            url = resource['accessUrl']
         elif resource.has_key('downloadUrl'):
-            url= resource['downloadUrl']
+            url = resource['downloadUrl']
         elif resource.has_key('downloadURL'):
-            url= resource['downloadURL']
+            url = resource['downloadURL']
         return url
 
-    def getResourcesMediaType(self,resource):
+    def getResourcesMediaType(self, resource):
         return resource['mediaType']
 
     def getResourcesFormat(self, resource):
