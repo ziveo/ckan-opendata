@@ -61,7 +61,10 @@ class Data(object):
         return dataset['distribution']
 
     def getDatasetSpatial(self, dataset):
-        return dataset['spatial']
+        if dataset.has_key('spatial'):
+            return dataset['spatial']
+        else:
+            return None
 
     def getDatasetTheme(self, dataset):
         return dataset['theme']
