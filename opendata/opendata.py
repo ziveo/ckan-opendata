@@ -47,15 +47,15 @@ class Data(object):
         return dataset['modified']
 
     def getDatasetContact(self, dataset):
-        contact_name = ''
-        contact_email = ''
         contact_point = dataset['contactPoint']
-        try:
-            contact_name = contact_point['fn']
+        contact_email = ''
+        contact_name = ''
+
+        if contact_point.has_key('hasEmail'):
             contact_email = contact_point['hasEmail']
-            return contact_name, contact_email
-        except:
-            return contact_name, contact_email
+        if contact_point.has_key('fn'):
+            contact_name = contact_point['fn']
+        return contact_name, contact_email
 
     def getDatasetResources(self, dataset):
         return dataset['distribution']
