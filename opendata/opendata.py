@@ -23,7 +23,11 @@ class Data(object):
         self.url = conn.url
 
     def getDatasetsList(self):
-        return requests.get(self.url).json()['dataset']
+        response = requests.get(self.url)
+        if response.headers.get('content-type') == 'application/json; charset=utf-8':
+            return response.json()['dataset']
+        else:
+            return []
 
     def getDatasetTitle(self, dataset):
         return dataset['title']
