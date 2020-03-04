@@ -19,7 +19,7 @@ for dataset in datasets:
     title  = data.getDatasetTitle(dataset)
     itemID = data.getDatasetAGOLItemID(dataset)
     item = data.getDatasetAGOLItem(itemID)
-    print item.thumbnail
+    print(item.thumbnail)
 ```
 ### Methods for a dataset
 

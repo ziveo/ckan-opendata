@@ -5,7 +5,7 @@ conn = od.Connect(url)
 data = od.Data(conn)
 datasets = data.getDatasetsList()
 for dataset in datasets:
-    title  = data.getDatasetTitle(dataset)
+    title = data.getDatasetTitle(dataset)
     # Returns the Item ID for ArcGIS online
     itemID = data.getDatasetAGOLItemID(dataset)
 
@@ -13,5 +13,4 @@ for dataset in datasets:
     item = data.getDatasetAGOLItem(itemID)
     # Accessing the Item thumbnail.
 
-    print item.thumbnail
-
+    print(item.thumbnail)

@@ -1,5 +1,3 @@
-__author__ = 'jnordling'
-
 import requests
 
 url = 'http://www.arcgis.com/sharing/rest/content/items/'
